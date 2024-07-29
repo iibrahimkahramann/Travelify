@@ -27,17 +27,8 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Image.asset(
-              'assets/images/welcome_image.png',
+              'assets/images/logo.png',
               height: 100.0,
-            ),
-            SizedBox(height: 20.0),
-            Text(
-              'Travelify',
-              style: TextStyle(
-                fontSize: 24.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.teal,
-              ),
             ),
             SizedBox(height: 20.0),
             Padding(

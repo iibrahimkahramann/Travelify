@@ -2,6 +2,24 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:sizer/sizer.dart';
+import 'package:travel_app/screens/auth_screens/login_screen.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Sizer(
+      builder: (context, orientation, deviceType) {
+        return MaterialApp(
+          home: WelcomeScreen(),
+        );
+      },
+    );
+  }
+}
 
 class WelcomeScreen extends StatelessWidget {
   WelcomeScreen({super.key});
@@ -110,18 +128,24 @@ class WelcomeStack extends StatelessWidget {
                   horizontal: 5.w,
                   vertical:
                       2.h), // Ekran genişliği ve yüksekliğine göre padding
-              child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(12)),
-                    color: Colors.white),
-                child: Center(
-                  child: Text(
-                    "Let's Start",
-                    style: TextStyle(
-                        fontSize: 14.sp,
-                        color: const Color.fromARGB(255, 5, 190,
-                            146) // Ekran boyutuna göre yazı tipi boyutu
-                        ),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                  );
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(12)),
+                      color: Colors.white),
+                  child: Center(
+                    child: Text(
+                      "Let's Start",
+                      style: TextStyle(
+                          fontSize: 14.sp,
+                          color: const Color.fromARGB(255, 5, 190, 146)),
+                    ),
                   ),
                 ),
               ),

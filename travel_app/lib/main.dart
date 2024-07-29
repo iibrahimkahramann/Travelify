@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:travel_app/screens/splash_screen.dart';
 import 'package:travel_app/screens/welcome_screen.dart';
 import 'package:sizer/sizer.dart';
+import 'package:travel_app/screens/tab_navigation_bar.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
           home: SplashScreen(),
           routes: {
             '/welcome': (context) => WelcomeScreen(),
+            '/home': (context) => BottomNavBarSellerView(),
           },
         );
       },
