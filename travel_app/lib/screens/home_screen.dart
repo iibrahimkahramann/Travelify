@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:travel_app/screens/details_screen.dart';
 
-
 class HomeScreen extends StatefulWidget {
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -206,74 +205,72 @@ class ListViewFour extends StatelessWidget {
                 ),
               );
             },
-          
-          child: Container(
-            width: 80.w,
-            margin: EdgeInsets.symmetric(horizontal: 2.w),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15.sp),
-              border: Border.all(
-                color: Color.fromARGB(255, 238, 238, 238),
-                width: 1, // Çizgi kalınlığı
+            child: Container(
+              width: 80.w,
+              margin: EdgeInsets.symmetric(horizontal: 2.w),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15.sp),
+                border: Border.all(
+                  color: Color.fromARGB(255, 238, 238, 238),
+                  width: 1, // Çizgi kalınlığı
+                ),
               ),
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(15.sp),
-              child: Stack(
-                children: [
-                  Container(
-                    width: 80.w,
-                    height: 15.h,
-                    decoration: BoxDecoration(color: Colors.white),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(6.w),
-                    child: Row(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(10.sp),
-                          child: Image.asset(
-                            data[index]['image'],
-                            width: 20.w,
-                            height: 15.h,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        SizedBox(width: 2.w),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                data[index]['title'],
-                                style: TextStyle(
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color.fromARGB(255, 0, 0, 0),
-                                ),
-                              ),
-                              SizedBox(height: 1.h),
-                              Text(
-                                data[index]['distance'],
-                                style: TextStyle(
-                                  fontSize: 12.sp,
-                                  color: Color.fromARGB(255, 115, 115, 115),
-                                ),
-                              ),
-                              Spacer(flex: 1),
-                            ],
-                          ),
-                        ),
-                      ],
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(15.sp),
+                child: Stack(
+                  children: [
+                    Container(
+                      width: 80.w,
+                      height: 15.h,
+                      decoration: BoxDecoration(color: Colors.white),
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding: EdgeInsets.all(6.w),
+                      child: Row(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(10.sp),
+                            child: Image.asset(
+                              data[index]['image'],
+                              width: 20.w,
+                              height: 15.h,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          SizedBox(width: 2.w),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  data[index]['title'],
+                                  style: TextStyle(
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color.fromARGB(255, 0, 0, 0),
+                                  ),
+                                ),
+                                SizedBox(height: 1.h),
+                                Text(
+                                  data[index]['distance'],
+                                  style: TextStyle(
+                                    fontSize: 12.sp,
+                                    color: Color.fromARGB(255, 115, 115, 115),
+                                  ),
+                                ),
+                                Spacer(flex: 1),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
           );
-      )
         },
       ),
     );
@@ -282,277 +279,6 @@ class ListViewFour extends StatelessWidget {
 
 class ListViewThree extends StatelessWidget {
   const ListViewThree({
-    super.key,
-    required this.data,
-  });
-
-  final List<Map<String, dynamic>> data;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 15.h,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: data.length,
-        itemBuilder: (context, index) {
-          return Container(
-            width: 80.w,
-            margin: EdgeInsets.symmetric(horizontal: 2.w),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15.sp),
-              border: Border.all(
-                color: Color.fromARGB(255, 238, 238, 238),
-                width: 1, // Çizgi kalınlığı
-              ),
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(15.sp),
-              child: Stack(
-                children: [
-                  Container(
-                    width: 80.w,
-                    height: 15.h,
-                    decoration: BoxDecoration(color: Colors.white),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(6.w),
-                    child: Row(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(10.sp),
-                          child: Image.asset(
-                            data[index]['image'],
-                            width: 20.w,
-                            height: 15.h,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        SizedBox(width: 2.w),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                data[index]['title'],
-                                style: TextStyle(
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color.fromARGB(255, 0, 0, 0),
-                                ),
-                              ),
-                              SizedBox(height: 1.h),
-                              Text(
-                                data[index]['distance'],
-                                style: TextStyle(
-                                  fontSize: 12.sp,
-                                  color: Color.fromARGB(255, 115, 115, 115),
-                                ),
-                              ),
-                              Spacer(flex: 1),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          );
-        },
-      ),
-    );
-  }
-}
-
-class ListViewTwo extends StatelessWidget {
-  const ListViewTwo({
-    super.key,
-    required this.data,
-  });
-
-  final List<Map<String, dynamic>> data;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 30.h, // ListView'in yüksekliği
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: data.length,
-        itemBuilder: (context, index) {
-          return Container(
-            width: 80.w, // Genişliği artırıldı
-            margin: EdgeInsets.symmetric(horizontal: 2.w),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15.sp),
-              border: Border.all(
-                color: Color.fromARGB(255, 238, 238, 238),
-                width: 1, // Çizgi kalınlığı
-              ),
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(15.sp),
-              child: Stack(
-                children: [
-                  Image.asset(
-                    data[index]['image'],
-                    width: 80.w, // Genişliği artırıldı
-                    height: 30.h,
-                    fit: BoxFit.cover,
-                  ),
-                  Container(
-                    width: 80.w, // Genişliği artırıldı
-                    height: 30.h,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.bottomCenter,
-                        end: Alignment.topCenter,
-                        colors: [
-                          Color.fromARGB(255, 36, 36, 36).withOpacity(0.4),
-                          Colors.transparent,
-                        ],
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 2.h,
-                    left: 2.w,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          data[index]['title'],
-                          style: TextStyle(
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                        SizedBox(height: 1.h),
-                        Text(
-                          data[index]['distance'],
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          );
-        },
-      ),
-    );
-  }
-}
-
-class ListViewOne extends StatelessWidget {
-  const ListViewOne({
-    super.key,
-    required this.data,
-  });
-
-  final List<Map<String, dynamic>> data;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 30.h, // ListView'in yüksekliği
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: data.length,
-        itemBuilder: (context, index) {
-          return Container(
-            width: 50.w,
-            margin: EdgeInsets.symmetric(horizontal: 3.w),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12.sp),
-              border: Border.all(
-                color: Color.fromARGB(255, 238, 238, 238),
-                width: 1, // Çizgi kalınlığı
-              ),
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(12.sp),
-              child: Stack(
-                children: [
-                  Image.asset(
-                    data[index]['image'],
-                    width: 50.w,
-                    height: 30.h,
-                    fit: BoxFit.cover,
-                  ),
-                  Container(
-                    width: 50.w,
-                    height: 30.h,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.bottomCenter,
-                        end: Alignment.topCenter,
-                        colors: [
-                          Color.fromARGB(255, 36, 36, 36).withOpacity(0.4),
-                          Colors.transparent,
-                        ],
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 2.h,
-                    left: 2.w,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          data[index]['title'],
-                          style: TextStyle(
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                        SizedBox(height: 1.h),
-                        Text(
-                          data[index]['distance'],
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          );
-        },
-      ),
-    );
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
-import 'package:travel_app/screens/detail_screen.dart'; // Detay sayfasını import et
-
-class ListViewFour extends StatelessWidget {
-  const ListViewFour({
     super.key,
     required this.data,
   });
@@ -632,6 +358,196 @@ class ListViewFour extends StatelessWidget {
                                 ),
                                 Spacer(flex: 1),
                               ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+class ListViewTwo extends StatelessWidget {
+  const ListViewTwo({
+    super.key,
+    required this.data,
+  });
+
+  final List<Map<String, dynamic>> data;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 30.h, // ListView'in yüksekliği
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: data.length,
+        itemBuilder: (context, index) {
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailScreen(itemData: data[index]),
+                ),
+              );
+            },
+            child: Container(
+              width: 80.w, // Genişliği artırıldı
+              margin: EdgeInsets.symmetric(horizontal: 2.w),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15.sp),
+                border: Border.all(
+                  color: Color.fromARGB(255, 238, 238, 238),
+                  width: 1, // Çizgi kalınlığı
+                ),
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(15.sp),
+                child: Stack(
+                  children: [
+                    Image.asset(
+                      data[index]['image'],
+                      width: 80.w, // Genişliği artırıldı
+                      height: 30.h,
+                      fit: BoxFit.cover,
+                    ),
+                    Container(
+                      width: 80.w, // Genişliği artırıldı
+                      height: 30.h,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.topCenter,
+                          colors: [
+                            Color.fromARGB(255, 36, 36, 36).withOpacity(0.4),
+                            Colors.transparent,
+                          ],
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 2.h,
+                      left: 2.w,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            data[index]['title'],
+                            style: TextStyle(
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                          SizedBox(height: 1.h),
+                          Text(
+                            data[index]['distance'],
+                            style: TextStyle(
+                              fontSize: 12.sp,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+class ListViewOne extends StatelessWidget {
+  const ListViewOne({
+    super.key,
+    required this.data,
+  });
+
+  final List<Map<String, dynamic>> data;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 30.h, // ListView'in yüksekliği
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: data.length,
+        itemBuilder: (context, index) {
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailScreen(itemData: data[index]),
+                ),
+              );
+            },
+            child: Container(
+              width: 50.w,
+              margin: EdgeInsets.symmetric(horizontal: 3.w),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12.sp),
+                border: Border.all(
+                  color: Color.fromARGB(255, 238, 238, 238),
+                  width: 1, // Çizgi kalınlığı
+                ),
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12.sp),
+                child: Stack(
+                  children: [
+                    Image.asset(
+                      data[index]['image'],
+                      width: 50.w,
+                      height: 30.h,
+                      fit: BoxFit.cover,
+                    ),
+                    Container(
+                      width: 50.w,
+                      height: 30.h,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.topCenter,
+                          colors: [
+                            Color.fromARGB(255, 36, 36, 36).withOpacity(0.4),
+                            Colors.transparent,
+                          ],
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 2.h,
+                      left: 2.w,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            data[index]['title'],
+                            style: TextStyle(
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                          SizedBox(height: 1.h),
+                          Text(
+                            data[index]['distance'],
+                            style: TextStyle(
+                              fontSize: 12.sp,
+                              color: Colors.white,
                             ),
                           ),
                         ],
