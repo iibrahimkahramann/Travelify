@@ -39,6 +39,8 @@ dependencies:
   cupertino_icons: ^1.0.6
   smooth_page_indicator: ^1.2.0
   sizer: ^2.0.15
+  google_maps_flutter: ^2.2.0
+  
 
 dev_dependencies:
   flutter_test:

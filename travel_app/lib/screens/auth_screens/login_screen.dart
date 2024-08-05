@@ -5,7 +5,6 @@ import 'package:flutter/rendering.dart';
 import 'package:sizer/sizer.dart';
 import 'package:travel_app/screens/auth_screens/signup_screen.dart';
 import 'package:travel_app/screens/auth_screens/forgot_password_screen.dart';
-import 'package:travel_app/screens/home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

@@ -8,26 +8,30 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final List<Map<String, dynamic>> data = [
+  List<Map<String, dynamic>> data = [
     {
       'image': 'assets/images/home1.png',
       'title': 'Niagara Falls',
       'distance': '138 km',
+      'location': 'Niagara, America'
     },
     {
       'image': 'assets/images/home2.png',
       'title': 'CN Tower',
       'distance': '15 km',
+      'location': 'Toronto, Canada'
     },
     {
       'image': 'assets/images/home1.png',
       'title': 'Niagara Falls',
       'distance': '138 km',
+      'location': 'Niagara, America'
     },
     {
       'image': 'assets/images/home2.png',
       'title': 'CN Tower',
       'distance': '15 km',
+      'location': 'Toronto, Canada'
     },
   ];
 
