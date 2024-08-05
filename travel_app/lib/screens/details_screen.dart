@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:sizer/sizer.dart';
+import 'package:intl/intl.dart';
 
 class DetailScreen extends StatelessWidget {
   final Map<String, dynamic> itemData;
@@ -9,6 +8,18 @@ class DetailScreen extends StatelessWidget {
   DetailScreen({required this.itemData});
 
   final List<Map<String, dynamic>> flightData = [
+    {
+      'image': 'assets/images/thy.png',
+      'airline': 'Turkish Airlines',
+      'price': 150.0,
+      'date': DateTime(2024, 8, 10),
+    },
+    {
+      'image': 'assets/images/pegasus.png',
+      'airline': 'Pegasus Airlines',
+      'price': 200.0,
+      'date': DateTime(2024, 8, 15),
+    },
     {
       'image': 'assets/images/thy.png',
       'airline': 'Turkish Airlines',
@@ -69,87 +80,210 @@ class DetailScreen extends StatelessWidget {
                 color: Color.fromARGB(255, 245, 244, 244),
                 height: 2.h,
               ),
+              // "Flights within 30 Days" başlığı
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 7.w, vertical: 3.h),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: Row(
                   children: [
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.airplane_ticket_rounded,
-                          size: 22.sp,
-                          color: Color.fromARGB(255, 115, 115, 115),
-                        ),
-                        SizedBox(width: 1.w),
-                        Text(
-                          'Flights within 30 Days',
-                          style: TextStyle(
-                            fontSize: 18.sp,
-                            color: Color.fromARGB(255, 115, 115, 115),
-                          ),
-                        ),
-                      ],
+                    Icon(
+                      Icons.airplane_ticket_rounded,
+                      size: 22.sp,
+                      color: Color.fromARGB(255, 115, 115, 115),
                     ),
-                    SizedBox(height: 3.h),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(12.0),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.2),
-                            spreadRadius: 2,
-                            blurRadius: 5,
-                            offset: Offset(0, 3), // Konum
-                          ),
-                        ],
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.all(8.0), // İçerik padding
-                        child: Row(
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.only(left: 2.0),
-                              child: CircleAvatar(
-                                backgroundImage:
-                                    AssetImage('assets/images/thy.png'),
-                                radius: 14.sp,
-                              ),
-                            ),
-                            SizedBox(width: 8.sp),
-                            Text(
-                              'Turkish Airlines',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 14.sp,
-                              ),
-                            ),
-                            SizedBox(width: 22.w),
-                            Text(
-                              'Buy',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w700,
-                                fontSize: 12.sp,
-                                color: Color.fromARGB(255, 149, 149, 149),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 1.w,
-                            ),
-                            Icon(
-                              Icons.arrow_forward_ios_rounded,
-                              size: 11.sp,
-                              color: Color.fromARGB(255, 115, 115, 115),
-                            ),
-                          ],
-                        ),
+                    SizedBox(width: 1.w),
+                    Text(
+                      'Flights within 30 Days',
+                      style: TextStyle(
+                        fontSize: 18.sp,
+                        color: Color.fromARGB(255, 115, 115, 115),
                       ),
                     ),
                   ],
                 ),
               ),
+              // FlightCard widget'larını veri ile güncelleyin
+              ...flightData
+                  .map((flight) => FlightCard(flight: flight))
+                  .toList(),
             ]),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class FlightCard extends StatelessWidget {
+  final Map<String, dynamic> flight;
+
+  FlightCard({required this.flight});
+
+  @override
+  Widget build(BuildContext context) {
+    final priceFormatter = NumberFormat.currency(locale: 'tr_TR', symbol: '₺');
+    final formattedPrice = priceFormatter.format(flight['price']);
+
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 7.w, vertical: 1.h),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12.0),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.2),
+                  spreadRadius: 2,
+                  blurRadius: 5,
+                  offset: Offset(0, 3),
+                ),
+              ],
+            ),
+            child: Padding(
+              padding: EdgeInsets.all(15.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(left: 2.0),
+                        child: CircleAvatar(
+                          backgroundImage: AssetImage(flight['image']),
+                          radius: 14.sp,
+                        ),
+                      ),
+                      SizedBox(width: 8.sp),
+                      Text(
+                        flight['airline'],
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 14.sp,
+                        ),
+                      ),
+                      SizedBox(width: 16.w),
+                      Text(
+                        'Buy',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 12.sp,
+                          color: Color.fromARGB(255, 5, 190, 146),
+                        ),
+                      ),
+                      Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        size: 11.sp,
+                        color: Color.fromARGB(255, 5, 190, 146),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 1.w),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(left: 50.0),
+                        child: Icon(
+                          Icons.date_range_rounded,
+                          size: 14.sp,
+                          color: Color.fromARGB(255, 5, 190, 146),
+                        ),
+                      ),
+                      SizedBox(width: 1),
+                      Text(
+                        DateFormat('d MMM, EEE, HH:mm a')
+                            .format(flight['date']),
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 11.sp,
+                          color: Color.fromARGB(255, 5, 190, 146),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 2.h),
+                  Container(
+                    height: 1.h,
+                    width: double.infinity,
+                    child: Row(
+                      children: List.generate(
+                        19,
+                        (index) => Container(
+                          width: 9,
+                          height: 2.0,
+                          color: Color.fromARGB(255, 217, 215, 215),
+                          margin: EdgeInsets.symmetric(horizontal: 1.w),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 2.h),
+                  Stack(
+                    children: [
+                      Center(
+                        child: Container(
+                          height: 1.h,
+                          width: 70.w,
+                          color: Color.fromARGB(255, 242, 242, 242),
+                        ),
+                      ),
+                      Positioned(
+                        left: 10,
+                        top: 0,
+                        bottom: 0,
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Icon(
+                            Icons.flight,
+                            color: Color.fromARGB(255, 5, 190, 146),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        right: 10,
+                        top: 0,
+                        bottom: 0,
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: Icon(
+                            Icons.location_on,
+                            color: Color.fromARGB(255, 244, 67, 54),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 2.h),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "CA",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 14.sp,
+                            color: Color.fromARGB(255, 160, 160, 160)),
+                      ),
+                      Text(
+                        formattedPrice,
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 14.sp,
+                        ),
+                      ),
+                      Text(
+                        "EG",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 14.sp,
+                            color: Color.fromARGB(255, 160, 160, 160)),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
       ),
