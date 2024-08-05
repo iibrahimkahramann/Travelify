@@ -42,20 +42,29 @@ class DetailScreen extends StatelessWidget {
           SliverAppBar(
             expandedHeight: 23.h,
             pinned: true,
-            flexibleSpace: FlexibleSpaceBar(
-              background: Image.asset(
-                itemData['image'],
-                fit: BoxFit.cover,
-              ),
-              title: Text(
-                itemData['title'],
-                style: TextStyle(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
-              centerTitle: false,
+            flexibleSpace: LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) {
+                final double top = constraints.biggest.height;
+                final bool showTitle = top < 110.0;
+
+                return FlexibleSpaceBar(
+                  centerTitle: true,
+                  title: showTitle
+                      ? Text(
+                          itemData['title'],
+                          style: TextStyle(
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        )
+                      : null,
+                  background: Image.asset(
+                    itemData['image'],
+                    fit: BoxFit.cover,
+                  ),
+                );
+              },
             ),
           ),
           SliverList(
@@ -208,7 +217,7 @@ class FlightCard extends StatelessWidget {
                     width: double.infinity,
                     child: Row(
                       children: List.generate(
-                        19,
+                        18,
                         (index) => Container(
                           width: 9,
                           height: 2.0,
